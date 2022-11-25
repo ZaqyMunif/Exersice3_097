@@ -15,6 +15,7 @@ namespace Exersice3_097
     }
     class Circularlist
     {
+        Node LAST;
 
     }
 }

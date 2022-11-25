@@ -43,5 +43,10 @@ namespace Exersice3_097
             else
                 return false;
         }
+
+        public void traverse()/*Traverses all the nodes of the list*/
+        {
+
+        }
     }
 }

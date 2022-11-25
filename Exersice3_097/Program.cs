@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +14,7 @@ namespace Exersice3_097
         public int rollNumber;
         public string name;
         public Node next;
+        public Node prev;
     }
     class CircularList
     {
@@ -23,7 +26,51 @@ namespace Exersice3_097
         }
         public void addNode()
         {
+            int nim;
+            string nm;
+            Console.WriteLine("\nEnter the roll number of the student : ");
+            nim = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.rollNumber = nim;
+            newNode.name = nm;
 
+            if (LAST == null || nim <= LAST.rollNumber)
+            {
+                if ((LAST != null) && (nim == LAST.rollNumber))
+                {
+                    Console.WriteLine("\nDuplicate number not allowed");
+                    return;
+
+                }
+                newNode.next = LAST.next;
+                LAST.next = newNode;
+                return;
+            }
+            Node previous, current;
+            for(current = previous = LAST;
+                current != null && nim >= current.rollNumber;
+                previous = current, current = current.next)
+            {
+                if (nim == current.rollNumber)
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return ;
+                }
+            }
+            newNode.next = current;
+            newNode.prev = previous;
+
+            if (current == null)
+            {
+                newNode.next = null;
+                previous.next = newNode;
+                return;
+            }
+            newNode.next = LAST.next;
+            LAST.next= newNode;
+            LAST = newNode;
         }
 
         public bool Search(int rollNo, ref Node previous, ref Node current)/*

@@ -133,7 +133,8 @@ namespace Exersice3_097
                     Console.WriteLine("1. View all the records in the list");
                     Console.WriteLine("2. Search for a record in the list");
                     Console.WriteLine("3. Display the first record in the list");
-                    Console.WriteLine("4. Exit");
+                    Console.WriteLine("4. Add a record to the list");
+                    Console.WriteLine("5.Exit");
                     Console.Write("\nEnter your choice (1-4): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
@@ -169,6 +170,9 @@ namespace Exersice3_097
                             }
                             break ;
                         case '4':
+                            obj.addNode();
+                            break ;
+                        case '5':
                             return;
                         default:
                             {

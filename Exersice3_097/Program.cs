@@ -21,6 +21,10 @@ namespace Exersice3_097
         {
             LAST = null;
         }
+        public void addNode()
+        {
+
+        }
 
         public bool Search(int rollNo, ref Node previous, ref Node current)/*
         Searches for the specified node*/
@@ -83,7 +87,7 @@ namespace Exersice3_097
                     Console.WriteLine("2. Search for a record in the list");
                     Console.WriteLine("3. Display the first record in the list");
                     Console.WriteLine("4. Exit");
-                    Console.WriteLine("\nEnter your choice (1-4): ");
+                    Console.Write("\nEnter your choice (1-4): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
